@@ -44,7 +44,7 @@ function Listag (items, tagMap) {
      *
      */
     add (items, tagMap) {
-      const firstTime = !this.length
+      const firstTime = !this.length // must check firstTime at 1st because this.length will change later.
 
       if (items.map) {
         const newItems = items.map(item => this.add(item, tagMap))
@@ -55,7 +55,7 @@ function Listag (items, tagMap) {
         }
       }
 
-      let item = items  // below items is confirmed not a array
+      let item = items  // items is confirmed not a array from now
 
       if (item instanceof ListagItem) {
         item.tag(tagMap)
@@ -77,17 +77,17 @@ function Listag (items, tagMap) {
       }
     }
 
-    del(list) {
-      if (!list) {
+    del(itemList) {
+      if (!itemList) {
         return 0
       }
 
-      if (list.map) {
-        return list.map(i => this.del(i))
-                    .reduce((a, b) => a+b)
+      if (itemList.map) {
+        return itemList.map(i => this.del(i))
+                       .reduce((a, b) => a+b)
       }
 
-      const item = list
+      const item = itemList
       let data
       if (item instanceof ListagItem) {
         data = item.data
@@ -113,11 +113,11 @@ function Listag (items, tagMap) {
       return this
     }
 
-    getTag(list) {
-      if (list.map) {
-        return list.map(i => this.tagMap(i))
+    getTag(itemList) {
+      if (itemList.map) {
+        return itemList.map(i => this.tagMap(i))
       }
-      const item = list
+      const item = itemList
 
       if (item instanceof ListagItem) {
         return item.tagMap
@@ -127,7 +127,7 @@ function Listag (items, tagMap) {
       if (ret && ret.length) {
         return ret[0].tagMap
       }
-       return {} // XXX or return null?
+      return {} // XXX or return null?
     }
 
     forEach (cb) {
