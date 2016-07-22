@@ -17,6 +17,9 @@
     "delete",
     "tag"
   ],
+  "engines": {
+    "node": ">= 6.0.0"
+  },
   "author": "Zhuohuan LI <zixia@zixia.net>",
   "license": "ISC",
   "bugs": {
