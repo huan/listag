@@ -1,9 +1,12 @@
-# listag
+# listag [![Linux Build Status](https://travis-ci.org/zixia/wechaty.svg?branch=master)](https://travis-ci.org/zixia/wechaty)
+
 Array like List Manager supports Query/Delete by Tag
+
+[![npm version](https://badge.fury.io/js/listag.svg)](https://badge.fury.io/js/listag)
 
 ## Why Listag
 
-When we have some of hash values, we put them into a array like:
+When we have some of hash values, we put them into a array:
 
 ```javascript
 const List = [
@@ -13,7 +16,7 @@ const List = [
 ]
 ```
 
-If we want to get the value of whose name is 'tom', we have to use a filter:
+If we want to get the value out whose name is 'tom', we have to use filter:
 
 ```javascript
 const filteredList = List.filter(v => {
@@ -21,7 +24,7 @@ const filteredList = List.filter(v => {
 })
 ```
 
-Listag is a convinience way to do this, with more powerful enhancements.
+**Listag is a convinience way to do this, with more powerful enhancements.**
 
 ```javascript
 const lt = new Listag()
@@ -42,13 +45,13 @@ lt.get({
 
 So what is Listag?
 
-It is:
-1. a javascript array.
+Listag is:
+1. **a javascript array**.
     can be used like a normal array with `[]`, `length`, `forEach`, `map`, `reduce` functions.
-2. tags associated with each item.
+2. **tags associated with each item**.
     can be queried by tags, return a array with items that has the specified tags.
-3. event support.
-    currently listag will emit `add` and `del` event.
+3. **event support**.
+    listag will emit `add` and `del` event which can be listened on.
 
 # Example
 
@@ -140,6 +143,20 @@ lt.set({
   lang: 'js'
 })
 ```
+
+# Test
+
+Unit Test can be found here:
+
+https://github.com/zixia/listag/blob/master/test/listag.spec.js
+
+# Known Issues & Support
+Github Issue - https://github.com/zixia/wechaty/issues
+
+# Changelog
+
+## v0.1.0 (2016/7/22)
+1. array with tags support powered by ES6 Proxy
 
 Author
 -----------------
