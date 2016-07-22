@@ -1,0 +1,29 @@
+{
+  "name": "listag",
+  "version": "0.1.0",
+  "description": "an Array like List Manager supports Query/Delete by Tags",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zixia/listag.git"
+  },
+  "keywords": [
+    "array",
+    "list",
+    "query",
+    "delete",
+    "tag"
+  ],
+  "author": "Zhuohuan LI <zixia@zixia.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zixia/listag/issues"
+  },
+  "homepage": "https://github.com/zixia/listag#readme",
+  "devDependencies": {
+    "tap": "^6.2.0"
+  }
+}
