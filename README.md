@@ -1,8 +1,21 @@
-# listag [![Linux Build Status](https://travis-ci.org/zixia/wechaty.svg?branch=master)](https://travis-ci.org/zixia/wechaty)
+# Listag [![Linux Build Status](https://travis-ci.org/zixia/wechaty.svg?branch=master)](https://travis-ci.org/zixia/wechaty)
 
 Array like List Manager supports Query/Delete by Tag
 
 [![npm version](https://badge.fury.io/js/listag.svg)](https://badge.fury.io/js/listag)
+
+## What is Listag?
+
+Listag is:
+
+1. Javascript Array  
+    can be used like a normal array with `[]`, `length`, `forEach`, `map`, `reduce` functions.
+2. Tags Associated with Each Item  
+    can be queried by tags, return a array with items that has the specified tags.
+3. Event Support  
+    listag will emit `add` and `del` event which can be listened on.
+4. TypeScript Support  
+    with Type Definition File included.
 
 ## Why Listag
 
@@ -42,16 +55,6 @@ lt.get({
   console.log('value of name bob: %s', v)
 })
 ```
-
-So what is Listag?
-
-Listag is:
-1. **a javascript array**.
-    can be used like a normal array with `[]`, `length`, `forEach`, `map`, `reduce` functions.
-2. **tags associated with each item**.
-    can be queried by tags, return a array with items that has the specified tags.
-3. **event support**.
-    listag will emit `add` and `del` event which can be listened on.
 
 # Example
 

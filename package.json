@@ -1,7 +1,7 @@
 {
   "name": "listag",
-  "version": "0.1.0",
-  "description": "an Array like List Manager supports Query/Delete by Tags",
+  "version": "0.1.1",
+  "description": "Array like List Manager supports Query/Delete by Tags",
   "main": "index.js",
   "scripts": {
     "test": "tap test/*.spec.js"
