@@ -3,6 +3,8 @@
 Array like List Manager supports Query/Delete by Tag
 
 [![npm version](https://badge.fury.io/js/listag.svg)](https://badge.fury.io/js/listag)
+[![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard-flat.svg)](http://definitelytyped.org)
+
 
 ## What is Listag?
 

@@ -1,6 +1,6 @@
 {
   "name": "listag",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Array like List Manager supports Query/Delete by Tags",
   "main": "index.js",
   "typings": "index.d.ts",
