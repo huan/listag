@@ -5,7 +5,7 @@
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "test": "tap test/*.spec.js"
+    "test": "typings install && ts-node $(which tape) test/*.spec.ts"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,17 @@
   },
   "homepage": "https://github.com/zixia/listag#readme",
   "devDependencies": {
-    "tap": "^6.2.0"
-  }
+    "tape": "^4.6.0",
+    "ts-node": "^1.2.1"
+  },
+  "files": [
+    "package.json",
+    "npm-shrinkwrap.json",
+    "README.md",
+    "CHANGELOG",
+    "LICENSE",
+    "index.d.ts",
+    "index.js",
+    "src/"
+  ]
 }

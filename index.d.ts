@@ -1,6 +1,8 @@
 // https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html
 // https://github.com/Microsoft/TypeScript/issues/2076#issuecomment-75052599
 
+import { EventEmitter } from 'events'
+
 interface ListagItem {
   new (data: any): ListagItem
   new (data: any, tagMap: Object): ListagItem
@@ -9,7 +11,7 @@ interface ListagItem {
   hasTag(tagMap: Object): boolean
 }
 
-interface Listag {
+interface Listag extends EventEmitter {
   new (): Listag
   new (item: any): Listag
   new (item: any, tagMap: any): Listag
@@ -18,10 +20,12 @@ interface Listag {
 
   length(): number
 
+  add(item: any): Listag | ListagItem
   add(item: any, tagMap: Object): Listag | ListagItem
   add(itemList: any[], tagMap: Object): Listag | ListagItem
 
-  del(itemList: Listag | ListagItem): number
+  del(item: any): number
+  del(itemList: any[]): number
 
   get(tagMap: Object): Listag
   tag(tagMap: Object): Listag

@@ -1,8 +1,8 @@
 'use strict'
 
-const test = require('tap').test
+import { test } from 'tape'
 
-const Listag = require('..')
+import { Listag } from '..'
 
 test('Listag smoking test', t => {
   let lt = new Listag()
