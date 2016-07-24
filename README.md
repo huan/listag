@@ -35,7 +35,7 @@ If we want to get the value out whose name is 'tom', we have to use filter:
 
 ```javascript
 const filteredList = List.filter(v => {
-  return name === 'tom'
+  return v.name === 'tom'
 })
 ```
 
