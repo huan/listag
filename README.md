@@ -1,4 +1,4 @@
-# Listag [![Linux Build Status](https://travis-ci.org/zixia/wechaty.svg?branch=master)](https://travis-ci.org/zixia/wechaty)
+# Listag [![Linux Build Status](https://travis-ci.org/zixia/listag.svg?branch=master)](https://travis-ci.org/zixia/listag)
 
 Array like List Manager supports Query/Delete by Tag
 
@@ -156,7 +156,7 @@ Unit Test can be found here:
 https://github.com/zixia/listag/blob/master/test/listag.spec.js
 
 # Known Issues & Support
-Github Issue - https://github.com/zixia/wechaty/issues
+Github Issue - https://github.com/zixia/listag/issues
 
 # Changelog
 
