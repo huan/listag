@@ -160,8 +160,11 @@ Github Issue - https://github.com/zixia/wechaty/issues
 
 # Changelog
 
+## v0.2.0 master
+1. add TypeScript Declaration File
+
 ## v0.1.0 (2016/7/22)
-1. array with tags support powered by ES6 Proxy
+1. support array with tags powered by ES6 Proxy
 
 Author
 -----------------
