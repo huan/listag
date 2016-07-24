@@ -1,6 +1,6 @@
 # Listag [![Linux Build Status](https://travis-ci.org/zixia/listag.svg?branch=master)](https://travis-ci.org/zixia/listag)
 
-Array like List Manager supports Query/Delete by Tag
+List Manager supports Array Operation & Query by Tags.
 
 [![npm version](https://badge.fury.io/js/listag.svg)](https://badge.fury.io/js/listag)
 [![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard-flat.svg)](http://definitelytyped.org)
@@ -10,7 +10,7 @@ Array like List Manager supports Query/Delete by Tag
 
 Listag is:
 
-1. Javascript Array  
+1. Javascript Array like  
     can be used like a normal array with `[]`, `length`, `forEach`, `map`, `reduce` functions.
 2. Tags Associated with Each Item  
     can be queried by tags, return a array with items that has the specified tags.
