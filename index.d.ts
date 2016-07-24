@@ -12,7 +12,7 @@ declare module "listag" {
     hasTag(tagMap: Object): boolean
   }
 
-  export default interface Listag extends EventEmitter {
+  interface Listag extends EventEmitter {
     new (): Listag
     new (item: any): Listag
     new (item: any, tagMap: any): Listag
@@ -38,4 +38,6 @@ declare module "listag" {
     map(cb: Function): any
     reduce(cb: Function, initialValue?: any): any
   }
+
+  export const Listag: Listag
 }
