@@ -4,11 +4,11 @@
 import { EventEmitter } from 'events'
 
 interface ListagItem {
-  new (data: any): ListagItem
-  new (data: any, tagMap: Object): ListagItem
+//   new (data: any): ListagItem
+//   new (data: any, tagMap: Object): ListagItem
 
   tag(tagMap: Object): ListagItem
-  hasTag(tagMap: Object): boolean
+//   matchTag(tagMap: Object): boolean
 }
 
 interface Listag extends EventEmitter {

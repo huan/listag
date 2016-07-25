@@ -109,6 +109,14 @@ blueLt.forEach(i => {
 })
 ```
 
+`get` can filter the result by `exclude` some tag value, by add a minus sign `-` before the value:
+
+```javascript
+let notBlueLt = lt.get({
+  color: '-blue'
+})
+```
+
 # Array Operation
 
 ```javascript
@@ -160,8 +168,9 @@ Github Issue - https://github.com/zixia/listag/issues
 
 # Changelog
 
-## v0.2.0 master
+## v0.2.3 master
 1. add TypeScript Declaration File
+1. support to exclude a tag value by add minus sign(`-`) to value
 
 ## v0.1.0 (2016/7/22)
 1. support array with tags powered by ES6 Proxy

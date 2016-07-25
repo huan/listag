@@ -138,6 +138,22 @@ test('Listag smoking test', t => {
   t.equal(retList.length, 1, 'should get one after get channel2')
   t.equal(retList[0], EXPECTED_ITEM_GREEN, 'should get the right sock 2')
 
+  /**
+   * get with minus value. ie: { tag: '-exception' }
+   */
+  lt = new Listag()
+  lt.add(EXPECTED_ITEM_RED, {
+    owner: EXPECTED_OWNER_ALICE
+    , channel: EXPECTED_CHANNEL_EARTH
+  })
+  lt.add(EXPECTED_ITEM_GREEN, {
+    owner: EXPECTED_OWNER_BOB
+    , channel: EXPECTED_CHANNEL_EARTH
+  })
+  retList = lt.get({ channel: EXPECTED_CHANNEL_EARTH, owner: '-' + EXPECTED_OWNER_BOB })
+  t.equal(retList.length, 1, 'should get one after get with "-" tag search sign')
+  t.equal(retList[0], EXPECTED_ITEM_RED, 'should get the red item with "-" tag search sign')
+
   t.end()
 })
 

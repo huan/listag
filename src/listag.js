@@ -13,15 +13,41 @@ class ListagItem {
     return this
   }
 
-  hasTag (tagMap) {
-    let exist = true
-    Object.keys(tagMap).forEach(t => {
-      if (this.tagMap[t] !== tagMap[t]) {
-        exist = false
-        return
+  matchTag (tagMap) {
+    let match = true
+    const minusRe = /^-(.+)$/
+    for (let key of Object.keys(tagMap)) {
+      let matchValue = tagMap[key]
+      let minus
+
+      if (typeof matchValue === 'string' 
+          && (minus = matchValue.match(minusRe))
+      ) {
+        /**
+         * tag: -value 
+         */      
+        matchValue = minus[1]
+        if (this.tagMap[key] === matchValue) {
+          match = false
+          break
+        }
+      } else {
+        /**
+         * tag: value 
+         */      
+        if (this.tagMap[key] !== matchValue) {
+          match = false
+          break
+        }
       }
-    })
-    return exist
+    }
+    // Object.keys(tagMap).forEach(t => {
+    //   if (this.tagMap[t] !== tagMap[t]) {
+    //     match = false
+    //     return
+    //   }
+    // })
+    return match
   }
 }
 
@@ -69,7 +95,7 @@ function Listag (items, tagMap) {
     }
 
     get (tags) {
-      const list = this.items.filter(i => i.hasTag(tags))
+      const list = this.items.filter(i => i.matchTag(tags))
       if (list && list.length) {
         return new Listag(list)
       } else {
