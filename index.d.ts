@@ -18,7 +18,7 @@ interface Listag extends EventEmitter {
   new (itemList: any[]): Listag
   new (itemList: any[], tagMap: Object): Listag
 
-  length(): number
+  length: number
 
   add(item: any): Listag | ListagItem
   add(item: any, tagMap: Object): Listag | ListagItem
