@@ -5,7 +5,6 @@ List Manager supports Array Operation & Query by Tags.
 [![npm version](https://badge.fury.io/js/listag.svg)](https://badge.fury.io/js/listag)
 [![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard-flat.svg)](http://definitelytyped.org)
 
-
 ## What is Listag?
 
 Listag is:
