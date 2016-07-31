@@ -1,7 +1,7 @@
 {
   "name": "listag",
   "version": "0.2.3",
-  "description": "List Manager supports Array Operation & Query by Tag",
+  "description": "List Manager for Array Operations & Query by Tag",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
