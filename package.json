@@ -1,6 +1,6 @@
 {
   "name": "listag",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "List Manager for Array Operations & Query by Tag",
   "main": "index.js",
   "typings": "index.d.ts",
