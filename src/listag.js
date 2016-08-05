@@ -16,10 +16,19 @@ class ListagItem {
   matchTag (tagMap) {
     let match = true
     const minusRe = /^-(.+)$/
-    for (let key of Object.keys(tagMap)) {
+    
+    if (Object.keys(tagMap).some(notMatch.bind(this))) {
+      match = false
+    }
+    
+    return match
+    
+    ///////////////////////////////////////////////////////////////////////////
+    
+    function notMatch(key) {
       let matchValue = tagMap[key]
       let minus
-
+      
       if (typeof matchValue === 'string' 
           && (minus = matchValue.match(minusRe))
       ) {
@@ -28,27 +37,21 @@ class ListagItem {
          */      
         matchValue = minus[1]
         if (this.tagMap[key] === matchValue) {
-          match = false
-          break
+          return true // not match!
         }
       } else {
         /**
          * tag: value 
          */      
         if (this.tagMap[key] !== matchValue) {
-          match = false
-          break
+          return true // not match!
         }
       }
+      
+      return false // match
     }
-    // Object.keys(tagMap).forEach(t => {
-    //   if (this.tagMap[t] !== tagMap[t]) {
-    //     match = false
-    //     return
-    //   }
-    // })
-    return match
   }
+  
 }
 
 function Listag (items, tagMap) {
