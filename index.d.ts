@@ -36,7 +36,7 @@ interface Listag extends Function, EventEmitter {
   getTag(item: any): any
   getTag(itemList: any[]): any
 
-  item(data: any): ListagItem | ListagItem[] | null
+  item(data: any): ListagItem | null
   
   forEach(cb: Function): any
   map(cb: Function): any

@@ -246,11 +246,17 @@ test('Listag del & array functional', t => {
 test('Listag.get support tags & raw data', t => {
   let lt = new Listag()
   
+  const obj = test
+
   lt.add([1, 2], {a: 1})
-  lt.add([3, 4], {b: 2})
+  lt.add([3, obj], {b: 2})
   
-  let item = lt.item(1)
+  let item = lt.item(obj)
   let tagMap = item.tag()
+  t.equal(tagMap.b, 2, 'should be 2 for tag name "b" on `obj`')
+
+  item = lt.item(1)
+  tagMap = item.tag()
   t.equal(tagMap.a, 1, 'should be 1 for tag name "a" on 1')
   
   item.tag({ c: 3 })
@@ -263,6 +269,14 @@ test('Listag.get support tags & raw data', t => {
   item = lt2.item(1)
   tagMap = item.tag()
   t.equal(tagMap.a, 1, 'should be 1 for new listag from a existing listag with tag name "a" on 1')
+  
+  let valid = true
+  for (let n=0; n<lt2.length; n++) {
+    item = lt2.item(lt2[n])
+    tagMap = item.tag()
+    valid = valid && item && tagMap
+  }
+  t.ok(valid, 'should got items and tags from array operator right')
   
   t.end()
 })
