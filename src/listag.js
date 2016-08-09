@@ -80,7 +80,18 @@ function Listag(items, tagMap) {
       const firstTime = !this.length // must check firstTime at 1st because this.length will change later.
 
       if (items.map) {
-        const newItems = items.map(item => this.add(item, tagMap))
+        let newItems
+        
+        /**
+         * we can not use `if (items instanceof _Listag)` here
+         * because _Listag is be proxyed(?)
+         *
+         */
+        if (items.constructor && items.constructor.name === '_Listag') {
+          newItems = items._items.map(item => this.add(item))
+        } else {
+          newItems = items.map(item => this.add(item, tagMap))
+        }
         if (firstTime) {  // for new Listag, we just return this to stop dead-loop
           return this
         } else {          // if we add some items to a exist Listag, add should return a new Listag that contains batch items of this add

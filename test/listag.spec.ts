@@ -258,5 +258,11 @@ test('Listag.get support tags & raw data', t => {
   tagMap = item.tag()
   t.equal(tagMap.c, 3, 'should be 3 for tag name "c" on 1')
   
+  const lt2 = new Listag(lt)
+  t.equal(lt.constructor.name, '_Listag', 'should be a _Listag instance')
+  item = lt2.item(1)
+  tagMap = item.tag()
+  t.equal(tagMap.a, 1, 'should be 1 for new listag from a existing listag with tag name "a" on 1')
+  
   t.end()
 })

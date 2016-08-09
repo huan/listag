@@ -163,7 +163,10 @@ Unit Test can be found here:
 https://github.com/zixia/listag/blob/master/test/listag.spec.js
 
 # Known Issues & Support
+
 Github Issue - https://github.com/zixia/listag/issues
+
+1. Listag can not be `instanceof` because it has been `Proxy`-ed
 
 # Changelog
 
