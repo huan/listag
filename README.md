@@ -181,6 +181,11 @@ Github Issue - https://github.com/zixia/listag/issues
 ## v0.1.0 (22 Jul 2016)
 1. support array with tags powered by ES6 Proxy
 
+# Todo
+
+[ ] support `for ... in Listag`
+[ ] support `for ... of Listag`
+
 Author
 -----------------
 Zhuohuan LI <zixia@zixia.net> (http://linkedin.com/in/zixia)
