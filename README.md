@@ -170,11 +170,15 @@ Github Issue - https://github.com/zixia/listag/issues
 
 # Changelog
 
-## v0.2.3 master
+## v0.3.1 master
+1. support create listag from listag, keep all tags information right
+1. add `Listag.item()` method to get a ListagItem from Listag, for read tag information
+
+## v0.2.3 (7 Aug 2016)
 1. add TypeScript Declaration File
 1. support to exclude a tag value by add minus sign(`-`) to value
 
-## v0.1.0 (2016/7/22)
+## v0.1.0 (22 Jul 2016)
 1. support array with tags powered by ES6 Proxy
 
 Author
