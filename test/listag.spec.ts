@@ -2,7 +2,7 @@
 
 import { test } from 'tape'
 
-import { Listag } from '..'
+import { Listag, ListagItem } from '..'
 
 test('Listag smoking test', t => {
   let lt = new Listag()
@@ -223,7 +223,9 @@ test('Listag del & array functional', t => {
 
   const EXPECTED_MAP = { expected: true }
   lt.add([5, 6], EXPECTED_MAP)
-  const retMap = lt.getTag(5)
+  const item = lt.item(5)
+  t.ok(item instanceof ListagItem, 'should be a ListagItem instance')
+  const retMap = item.tag()
   t.deepEqual(retMap, EXPECTED_MAP, 'should get back the getTag')
 
   const delList = lt.get(EXPECTED_MAP)
@@ -238,5 +240,23 @@ test('Listag del & array functional', t => {
   })
 
 
+  t.end()
+})
+
+test('Listag.get support tags & raw data', t => {
+  let lt = new Listag()
+  
+  lt.add([1, 2], {a: 1})
+  lt.add([3, 4], {b: 2})
+  
+  let item = lt.item(1)
+  let tagMap = item.tag()
+  t.equal(tagMap.a, 1, 'should be 1 for tag name "a" on 1')
+  
+  item.tag({ c: 3 })
+  item = lt.item(1)
+  tagMap = item.tag()
+  t.equal(tagMap.c, 3, 'should be 3 for tag name "c" on 1')
+  
   t.end()
 })

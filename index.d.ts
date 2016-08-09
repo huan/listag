@@ -3,15 +3,17 @@
 
 import { EventEmitter } from 'events'
 
-interface ListagItem {
+interface ListagItem extends Function {
 //   new (data: any): ListagItem
 //   new (data: any, tagMap: Object): ListagItem
 
   tag(tagMap: Object): ListagItem
+  tag(): any
+  
 //   matchTag(tagMap: Object): boolean
 }
 
-interface Listag extends EventEmitter {
+interface Listag extends Function, EventEmitter {
   new (): Listag
   new (item: any): Listag
   new (item: any, tagMap: any): Listag
@@ -29,13 +31,17 @@ interface Listag extends EventEmitter {
 
   get(tagMap: Object): Listag
   tag(tagMap: Object): Listag
+  tag(): any
 
-  getTag(item: any): Object
-  getTag(itemList: any[]): Object
+  getTag(item: any): any
+  getTag(itemList: any[]): any
 
+  item(data: any): ListagItem | ListagItem[] | null
+  
   forEach(cb: Function): any
   map(cb: Function): any
   reduce(cb: Function, initialValue?: any): any
 }
 
 export const Listag: Listag
+export const ListagItem: ListagItem

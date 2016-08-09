@@ -3,21 +3,25 @@
 const EventEmitter = require('events')
 
 class ListagItem {
-  constructor (data, tagMap = {}) {
+  constructor(data, initTag = {}) {
     this.data = data
-    this.tagMap = Object.assign({}, tagMap)
+    this._tag = Object.assign({}, initTag)
   }
 
-  tag (tagMap) {
-    Object.assign(this.tagMap, tagMap)
-    return this
+  tag(newTag) {
+    if (newTag) {
+      Object.assign(this._tag, newTag)
+      return this
+    } else {
+      return this._tag
+    }
   }
-
-  matchTag (tagMap) {
+  
+  matchTag(queryTag) {
     let match = true
     const minusRe = /^-(.+)$/
     
-    if (Object.keys(tagMap).some(notMatch.bind(this))) {
+    if (Object.keys(queryTag).some(notMatch.bind(this))) {
       match = false
     }
     
@@ -26,24 +30,24 @@ class ListagItem {
     ///////////////////////////////////////////////////////////////////////////
     
     function notMatch(key) {
-      let matchValue = tagMap[key]
+      let queryValue = queryTag[key]
       let minus
       
-      if (typeof matchValue === 'string' 
-          && (minus = matchValue.match(minusRe))
+      if (typeof queryValue === 'string' 
+          && (minus = queryValue.match(minusRe))
       ) {
         /**
          * tag: -value 
          */      
-        matchValue = minus[1]
-        if (this.tagMap[key] === matchValue) {
+        queryValue = minus[1]
+        if (this._tag[key] === queryValue) {
           return true // not match!
         }
       } else {
-        /**
+        /**2
          * tag: value 
          */      
-        if (this.tagMap[key] !== matchValue) {
+        if (this._tag[key] !== queryValue) {
           return true // not match!
         }
       }
@@ -54,17 +58,17 @@ class ListagItem {
   
 }
 
-function Listag (items, tagMap) {
+function Listag(items, tagMap) {
 
   class _Listag extends EventEmitter {
 
-    constructor (items = [], tagMap = {}) {
+    constructor(items = [], tagMap = {}) {
       super()
-      this.items = []
+      this._items = []
       this.add(items, tagMap)
     }
 
-    get length () { return this.items.length }
+    get length () { return this._items.length }
 
     /**
      *
@@ -72,7 +76,7 @@ function Listag (items, tagMap) {
      * return Listag for multi add
      *
      */
-    add (items, tagMap) {
+    add(items, tagMap) {
       const firstTime = !this.length // must check firstTime at 1st because this.length will change later.
 
       if (items.map) {
@@ -92,17 +96,34 @@ function Listag (items, tagMap) {
         item = new ListagItem(item, tagMap)
       }
 
-      this.items.push(item)
+      this._items.push(item)
       this.emit('add', item.data)
       return item
     }
 
-    get (tags) {
-      const list = this.items.filter(i => i.matchTag(tags))
+    get(tags) {
+      const list = this._items.filter(i => i.matchTag(tags))
       if (list && list.length) {
         return new Listag(list)
       } else {
         return null
+      }
+    }
+    
+    item(data) {
+      if (data instanceof ListagItem) {
+        return data
+      }
+      
+      const filteredItems = this._items.filter(i => i.data === data)
+      if (!filteredItems) {
+        return null
+      }
+
+      if (filteredItems.length > 1) {
+        return filteredItems
+      } else {
+        return filteredItems[0]
       }
     }
 
@@ -125,7 +146,7 @@ function Listag (items, tagMap) {
       }
 
       let counter = 0
-      this.items = this.items.filter(i => {
+      this._items = this._items.filter(i => {
         if (i.data === data) {
           counter++
           this.emit('del', data)
@@ -137,43 +158,59 @@ function Listag (items, tagMap) {
       return counter
     }
 
-    tag (tags) {
-      this.items.forEach(i => i.tag(tags))
-      return this
+    tag(newTag) {
+      /**
+       * set
+       *
+       */
+      if (newTag) {
+        this._items.forEach(i => i.tag(newTag))
+        return this
+      }
+
+      /**
+       * get
+       *
+       */
+      if (this._item.length > 1) {
+        return this._item.map(i => i.tag())
+      } else {
+        return this._item[0].tag()
+      }
     }
 
-    getTag(itemList) {
-      if (itemList.map) {
-        return itemList.map(i => this.tagMap(i))
-      }
-      const item = itemList
+    // getTag(itemList) {
+    //   if (itemList.map) {
+    //     return itemList.map(i => this.tagMap(i))
+    //   }
+    //   const item = itemList
 
-      if (item instanceof ListagItem) {
-        return item.tagMap
-      }
+    //   if (item instanceof ListagItem) {
+    //     return item.getTag()
+    //   }
 
-      const ret = this.items.filter(i => i.data === item)
-      if (ret && ret.length) {
-        return ret[0].tagMap
-      }
-      return {} // XXX or return null?
-    }
+    //   const ret = this._items.filter(i => i.data === item)
+    //   if (ret && ret.length) {
+    //     return ret[0].tagMap
+    //   }
+    //   return null // XXX or return {}?
+    // }
 
-    forEach (cb) {
-      return this.items.forEach(i => {
+    forEach(cb) {
+      return this._items.forEach(i => {
         return cb(i.data)
       })
     }
 
-    map (cb) {
-      return this.items.map(i => {
+    map(cb) {
+      return this._items.map(i => {
         return cb(i.data)
       })
     }
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
-    reduce (callback, initialValue) {
-      return this.items.reduce((previousValue, currentValue, currentIndex, array) => {
+    reduce(callback, initialValue) {
+      return this._items.reduce((previousValue, currentValue, currentIndex, array) => {
         return callback(previousValue, currentValue.data, currentIndex, array)
       }, initialValue)
 
@@ -181,12 +218,12 @@ function Listag (items, tagMap) {
   }
 
   const handler = {
-    get (listag, propKey, receiver) {
+    get(listag, propKey, receiver) {
       // console.log('##############' + propKey)
       try {
         const i = parseInt(propKey, 10)
         if (Number.isInteger(i) && i >= 0 && i < listag.length) {
-          return listag.items[i].data
+          return listag._items[i].data
         }
       } catch (e) { /* fall safe */ }
 
@@ -202,5 +239,7 @@ function Listag (items, tagMap) {
   )
 
 }
+
+Listag.ListagItem = ListagItem
 
 module.exports = Listag.default = Listag.Listag = Listag
