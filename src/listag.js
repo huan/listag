@@ -5,7 +5,7 @@ const EventEmitter = require('events')
 class ListagItem {
   constructor(
     data, 
-    initTag = {},
+    initTag = {}
   ) {
     this.data = data
     this._tag = Object.assign({}, initTag)
@@ -47,7 +47,7 @@ class ListagItem {
           return true // not match!
         }
       } else {
-        /**2
+        /**
          * tag: value 
          */      
         if (this._tag[key] !== queryValue) {
