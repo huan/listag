@@ -3,7 +3,10 @@
 const EventEmitter = require('events')
 
 class ListagItem {
-  constructor(data, initTag = {}) {
+  constructor(
+    data, 
+    initTag = {},
+  ) {
     this.data = data
     this._tag = Object.assign({}, initTag)
   }

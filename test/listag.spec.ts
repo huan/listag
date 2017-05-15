@@ -1,8 +1,9 @@
+#!/usr/bin/env ts-node
 'use strict'
 
-import { test } from 'tape'
+const { test } = require('tap')
 
-import { Listag, ListagItem } from '..'
+import { Listag, ListagItem } from '../'
 
 test('Listag smoking test', t => {
   let lt = new Listag()
