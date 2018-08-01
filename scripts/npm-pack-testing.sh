@@ -12,6 +12,7 @@ cp tests/fixtures/smoke-testing.ts "$TMPDIR"
 cd $TMPDIR
 npm init -y
 npm install *-*.*.*.tgz \
+  @types/node \
   typescript \
 
 ./node_modules/.bin/tsc \

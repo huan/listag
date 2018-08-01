@@ -191,8 +191,8 @@ Github Issue - <https://github.com/zixia/listag/issues>
 
 ## TODO
 
-[ ] support `for ... in Listag`
-[ ] support `for ... of Listag`
+- [ ] support `for ... in Listag`
+- [ ] support `for ... of Listag`
 
 ## AUTHOR
 

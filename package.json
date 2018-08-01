@@ -5,8 +5,11 @@
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
+    "dist": "echo dist",
+    "pack": "npm pack",
     "lint": "echo lint",
-    "test": "blue-tape -r ts-node/register \"src/**/*.spec.ts\" \"tests/**/*.spec.ts\""
+    "test": "blue-tape -r ts-node/register \"src/**/*.spec.ts\" \"tests/**/*.spec.ts\"",
+    "test:pack": "bash -x scripts/npm-pack-testing.sh"
   },
   "repository": {
     "type": "git",
