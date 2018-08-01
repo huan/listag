@@ -5,45 +5,44 @@ import { EventEmitter } from 'events'
 
 interface ListagItem extends Function {
 //   new (data: any): ListagItem
-//   new (data: any, tagMap: Object): ListagItem
+//   new (data: any, tagMap: object): ListagItem
 
-  tag(tagMap: Object): ListagItem
+  tag(tagMap: object): ListagItem
   tag(): any
   
-//   matchTag(tagMap: Object): boolean
+//   matchTag(tagMap: object): boolean
 }
 
 interface Listag<T = any> extends Function, EventEmitter {
-  new ()                               : Listag
-  new (item: any)                      : Listag
-  new (item: any, tagMap: any)         : Listag
-  new (itemList: any[])                : Listag
-  new (itemList: any[], tagMap: Object): Listag
+  new ()                             : Listag
+  new (item: T)                      : Listag
+  new (item: T, tagMap: object)      : Listag
+  new (itemList: T[])                : Listag
+  new (itemList: T[], tagMap: object): Listag
 
   length: number
 
-  add(item: any)                      : Listag | ListagItem
-  add(item: any, tagMap: Object)      : Listag | ListagItem
-  add(itemList: any[], tagMap: Object): Listag | ListagItem
+  add(item: T | Listag)                : Listag | ListagItem
+  add(item: T | Listag, tagMap: object): Listag | ListagItem
+  add(itemList: T[], tagMap: object)   : Listag | ListagItem
 
-  del(item: any)      : number
-  del(itemList: any[]): number
+  del(item: T | Listag): number
+  del(itemList: T[])   : number
 
-  get(tagMap: Object): Listag
-  tag(tagMap: Object): Listag
+  get(tagMap: object): Listag
+  tag(tagMap: object): Listag
   tag(): any
 
-  getTag(item: any)      : any
-  getTag(itemList: any[]): any
+  // getTag(item: T)      : any
+  // getTag(itemList: T[]): any
 
   item(data: any): ListagItem | null
   
-  forEach(cb: ((item: T) => void))          : any
-  map     (cb: Function)                    : any
+  forEach(cb: ((item: T) => void))          : void
+  map     (cb: Function)                    : T[]
   reduce  (cb: Function, initialValue?: any): any
 
-  [key: number]: any
-  [key: string]: any
+  [key: number]: T
 }
 
 export const Listag    : Listag
