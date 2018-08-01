@@ -38,7 +38,7 @@ interface Listag<T = any> extends Function, EventEmitter {
 
   item(data: any): ListagItem | null
   
-  forEach(cb: ((item: T) => void))          : void
+  forEach (cb: ((item: T) => void))         : void
   map     (cb: Function)                    : T[]
   reduce  (cb: Function, initialValue?: any): any
 
