@@ -1,13 +1,14 @@
-# Listag [![Linux Build Status](https://travis-ci.org/zixia/listag.svg?branch=master)](https://travis-ci.org/zixia/listag)
+# LISTAG
 
-List Manager supports Array Operation & Query by Tags.
-
+[![Linux Build Status](https://travis-ci.com/zixia/listag.svg?branch=master)](https://travis-ci.com/zixia/listag)
 [![npm version](https://badge.fury.io/js/listag.svg)](https://badge.fury.io/js/listag)
 [![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard-flat.svg)](http://definitelytyped.org)
 
-## What is Listag?
+![Listag](https://zixia.github.io/listag/images/listag.png)
 
-Listag is:
+List Manager supports Array Operation & Query by Tags.
+
+## FEATURES
 
 1. Javascript Array like  
     can be used like a normal array with `[]`, `length`, `forEach`, `map`, `reduce` functions.
@@ -18,7 +19,7 @@ Listag is:
 4. TypeScript Support  
     with Type Definition File included.
 
-## Why Listag
+## WHY LISTAG
 
 When we have some of hash values, we put them into a array:
 
@@ -57,10 +58,9 @@ lt.get({
 })
 ```
 
-# Example
+## EXAMPLE
 
-## Create listag
-
+### Create listag
 
 ```javascript
 let lt = new Listtag(1, {
@@ -68,13 +68,13 @@ let lt = new Listtag(1, {
 })
 
 let lt2 = new Listtag([2, 3], {
-  color: 'green'
-  , owner: 'tom'
+  color: 'green',
+  owner: 'tom',
 })
 
 ```
 
-## Add item(s) to a listag
+### Add item(s) to a listag
 
 ```javascript
 lt.add(4, {
@@ -86,7 +86,7 @@ lt.add([5, 6], {
 })
 ```
 
-# Del item(s) from a listag
+### Del item(s) from a listag
 
 ```javascript
 lt.del(4)
@@ -97,7 +97,7 @@ ltDel = lt.get({
 lt.del(ltDel)
 ```
 
-# Get item(s) from a listag
+### Get item(s) from a listag
 
 ```javascript
 let blueLt = lt.get({
@@ -116,7 +116,7 @@ let notBlueLt = lt.get({
 })
 ```
 
-# Array Operation
+### Array Operation
 
 ```javascript
 console.log('lt length: %s', lt.length)
@@ -135,7 +135,7 @@ lt.filter(item => {
 })
 ```
 
-# Event
+### Event
 
 ```javascript
 lt.on('add', item => {
@@ -148,7 +148,7 @@ lt.on('del', item => {
 
 ```
 
-# Set Tags to a listag
+### Set Tags to a listag
 
 ```javascript
 lt.set({
@@ -156,46 +156,54 @@ lt.set({
 })
 ```
 
-# Test
+## TEST
 
 Unit Test can be found here:
 
-https://github.com/zixia/listag/blob/master/test/listag.spec.js
+<https://github.com/zixia/listag/blob/master/tests/>
 
-# Known Issues & Support
+## KNOWN ISSUES & SUPPORT
 
-Github Issue - https://github.com/zixia/listag/issues
+Github Issue - <https://github.com/zixia/listag/issues>
 
 1. Listag can not be `instanceof` because it has been `Proxy`-ed
 
-# Changelog
+## CHANGELOG
 
-## v0.3.1 (9th Auth 2016)
+### v0.6 master
+
+1. Upgrade TypeScript to the latest version
+2. DevOps with npm@next
+
+### v0.4 (9th Auth 2016)
+
 1. support create listag from listag, keep all tags information right
 1. add `Listag.item()` method to get a ListagItem from Listag, for read tag information
 
-## v0.2.3 (7th Aug 2016)
+### v0.2.3 (7th Aug 2016)
+
 1. add TypeScript Declaration File
 1. support to exclude a tag value by add minus sign(`-`) to value
 
-## v0.1.0 (22 Jul 2016)
+### v0.1.0 (22 Jul 2016)
+
 1. support array with tags powered by ES6 Proxy
 
-# Todo
+## TODO
 
 [ ] support `for ... in Listag`
 [ ] support `for ... of Listag`
 
-Author
------------------
+## AUTHOR
+
 Zhuohuan LI <zixia@zixia.net> (http://linkedin.com/in/zixia)
 
 <a href="http://stackoverflow.com/users/1123955/zixia">
   <img src="http://stackoverflow.com/users/flair/1123955.png" width="208" height="58" alt="profile for zixia at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for zixia at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
 </a>
 
-Copyright & License
--------------------
-* Code & Docs 2016© zixia
+## COPYRIGHT & LICENSE
+
+* Code & Docs 2016-2018© zixia
 * Code released under the ISC license
 * Docs released under Creative Commons

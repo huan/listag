@@ -1,11 +1,11 @@
 {
   "name": "listag",
-  "version": "0.4.0",
+  "version": "0.6.0",
   "description": "List Manager for Array Operations & Query by Tag",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "test": "tap test/**/*.spec.ts"
+    "test": "blue-tape -r ts-node/register \"src/**/*.spec.ts\" \"tests/**/*.spec.ts\""
   },
   "repository": {
     "type": "git",
@@ -28,10 +28,11 @@
   },
   "homepage": "https://github.com/zixia/listag#readme",
   "devDependencies": {
-    "@types/node": "^7.0.18",
-    "tap": "^10.3.2",
-    "ts-node": "^3.0.0",
-    "typescript": "^2.0.3"
+    "@types/blue-tape": "^0.1.32",
+    "@types/node": "^10.5.5",
+    "blue-tape": "^1.0.0",
+    "ts-node": "^7.0.0",
+    "typescript": "^3.1.0-dev.20180801"
   },
   "files": [
     "package.json",

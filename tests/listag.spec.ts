@@ -1,9 +1,12 @@
 #!/usr/bin/env ts-node
 'use strict'
 
-const { test } = require('tap')
+import test from 'blue-tape'
 
-import { Listag, ListagItem } from '../'
+import { 
+  Listag, 
+  ListagItem 
+}               from '../'
 
 test('Listag smoking test', t => {
   let lt = new Listag()
@@ -226,7 +229,7 @@ test('Listag del & array functional', t => {
   lt.add([5, 6], EXPECTED_MAP)
   const item = lt.item(5)
   t.ok(item instanceof ListagItem, 'should be a ListagItem instance')
-  const retMap = item.tag()
+  const retMap = item!.tag()
   t.deepEqual(retMap, EXPECTED_MAP, 'should get back the getTag')
 
   const delList = lt.get(EXPECTED_MAP)
@@ -253,28 +256,28 @@ test('Listag.get support tags & raw data', t => {
   lt.add([3, obj], {b: 2})
   
   let item = lt.item(obj)
-  let tagMap = item.tag()
+  let tagMap = item!.tag()
   t.equal(tagMap.b, 2, 'should be 2 for tag name "b" on `obj`')
 
   item = lt.item(1)
-  tagMap = item.tag()
+  tagMap = item!.tag()
   t.equal(tagMap.a, 1, 'should be 1 for tag name "a" on 1')
   
-  item.tag({ c: 3 })
+  item!.tag({ c: 3 })
   item = lt.item(1)
-  tagMap = item.tag()
+  tagMap = item!.tag()
   t.equal(tagMap.c, 3, 'should be 3 for tag name "c" on 1')
   
   const lt2 = new Listag(lt)
   t.equal(lt.constructor.name, '_Listag', 'should be a _Listag instance')
   item = lt2.item(1)
-  tagMap = item.tag()
+  tagMap = item!.tag()
   t.equal(tagMap.a, 1, 'should be 1 for new listag from a existing listag with tag name "a" on 1')
   
   let valid = true
   for (let n=0; n<lt2.length; n++) {
     item = lt2.item(lt2[n])
-    tagMap = item.tag()
+    tagMap = item!.tag()
     valid = valid && item && tagMap
   }
   t.ok(valid, 'should got items and tags from array operator right')

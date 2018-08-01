@@ -13,35 +13,38 @@ interface ListagItem extends Function {
 //   matchTag(tagMap: Object): boolean
 }
 
-interface Listag extends Function, EventEmitter {
-  new (): Listag
-  new (item: any): Listag
-  new (item: any, tagMap: any): Listag
-  new (itemList: any[]): Listag
+interface Listag<T = any> extends Function, EventEmitter {
+  new ()                               : Listag
+  new (item: any)                      : Listag
+  new (item: any, tagMap: any)         : Listag
+  new (itemList: any[])                : Listag
   new (itemList: any[], tagMap: Object): Listag
 
   length: number
 
-  add(item: any): Listag | ListagItem
-  add(item: any, tagMap: Object): Listag | ListagItem
+  add(item: any)                      : Listag | ListagItem
+  add(item: any, tagMap: Object)      : Listag | ListagItem
   add(itemList: any[], tagMap: Object): Listag | ListagItem
 
-  del(item: any): number
+  del(item: any)      : number
   del(itemList: any[]): number
 
   get(tagMap: Object): Listag
   tag(tagMap: Object): Listag
   tag(): any
 
-  getTag(item: any): any
+  getTag(item: any)      : any
   getTag(itemList: any[]): any
 
   item(data: any): ListagItem | null
   
-  forEach(cb: Function): any
-  map(cb: Function): any
-  reduce(cb: Function, initialValue?: any): any
+  forEach(cb: ((item: T) => void))          : any
+  map     (cb: Function)                    : any
+  reduce  (cb: Function, initialValue?: any): any
+
+  [key: number]: any
+  [key: string]: any
 }
 
-export const Listag: Listag
+export const Listag    : Listag
 export const ListagItem: ListagItem
