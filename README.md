@@ -170,7 +170,7 @@ Github Issue - <https://github.com/zixia/listag/issues>
 
 ## CHANGELOG
 
-### v0.6 master
+### v0.8 master
 
 1. Upgrade TypeScript to the latest version
 2. DevOps with npm@next

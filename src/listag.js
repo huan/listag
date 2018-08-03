@@ -89,6 +89,10 @@ function Listag(items, tagMap) {
          * we can not use `if (items instanceof _Listag)` here
          * because _Listag is be proxyed(?)
          *
+         * if (items instanceof _Listag) {
+         * 
+         * Be aware of `minified` / `ulglify` version which will change the `constructor.name`...
+         * 
          */
         if (items.constructor && items.constructor.name === '_Listag') {
           newItems = items._items.map(item => this.add(item))
