@@ -2,7 +2,7 @@
 
 [![Linux Build Status](https://travis-ci.com/zixia/listag.svg?branch=master)](https://travis-ci.com/zixia/listag)
 [![npm version](https://badge.fury.io/js/listag.svg)](https://badge.fury.io/js/listag)
-[![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard-flat.svg)](http://definitelytyped.org)
+[![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard-flat.svg)](http://definitelytyped.org) [![Greenkeeper badge](https://badges.greenkeeper.io/zixia/listag.svg)](https://greenkeeper.io/)
 
 ![Listag](https://zixia.github.io/listag/images/listag.png)
 
