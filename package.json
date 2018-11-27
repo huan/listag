@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zixia/listag.git"
+    "url": "git+https://github.com/huan/listag.git"
   },
   "keywords": [
     "array",
@@ -28,9 +28,9 @@
   "author": "Huan LI <zixia@zixia.net>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zixia/listag/issues"
+    "url": "https://github.com/huan/listag/issues"
   },
-  "homepage": "https://github.com/zixia/listag#readme",
+  "homepage": "https://github.com/huan/listag#readme",
   "devDependencies": {
     "@types/blue-tape": "^0.1.32",
     "@types/node": "^10.5.5",

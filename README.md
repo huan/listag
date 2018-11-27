@@ -1,10 +1,10 @@
 # LISTAG
 
-[![Linux Build Status](https://travis-ci.com/zixia/listag.svg?branch=master)](https://travis-ci.com/zixia/listag)
+[![Linux Build Status](https://travis-ci.com/huan/listag.svg?branch=master)](https://travis-ci.com/huan/listag)
 [![npm version](https://badge.fury.io/js/listag.svg)](https://badge.fury.io/js/listag)
-[![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard-flat.svg)](http://definitelytyped.org) [![Greenkeeper badge](https://badges.greenkeeper.io/zixia/listag.svg)](https://greenkeeper.io/)
+[![TypeScript definitions on DefinitelyTyped](http://definitelytyped.org/badges/standard-flat.svg)](http://definitelytyped.org) [![Greenkeeper badge](https://badges.greenkeeper.io/huan/listag.svg)](https://greenkeeper.io/)
 
-![Listag](https://zixia.github.io/listag/images/listag.png)
+![Listag](https://huan.github.io/listag/images/listag.png)
 
 List Manager supports Array Operation & Query by Tags.
 
@@ -160,11 +160,11 @@ lt.set({
 
 Unit Test can be found here:
 
-<https://github.com/zixia/listag/blob/master/tests/>
+<https://github.com/huan/listag/blob/master/tests/>
 
 ## KNOWN ISSUES & SUPPORT
 
-Github Issue - <https://github.com/zixia/listag/issues>
+Github Issue - <https://github.com/huan/listag/issues>
 
 1. Listag can not be `instanceof` because it has been `Proxy`-ed
 
